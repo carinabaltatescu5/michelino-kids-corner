@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "1-ora-1",
+    "nume": "Pachet 1 oră (2 animatori)",
+    "descriere": "-2 mascote\n- 2 animatori",
+    "pret": "400 lei"
+  },
+  {
+    "slug": "1-ora-2",
+    "nume": "Pachet 1 oră (1 animator)",
+    "descriere": "- Pictură pe față\n- Baloane modelate",
+    "pret": "400 lei"
+  },
+  {
+    "slug": "pachet-2-ore-a",
+    "nume": "Pachet 2 ore (A)",
+    "descriere": "- Pictură pe față\n- Baloane modelate\n- 2 mascote",
+    "pret": "700 lei"
+  },
+  {
+    "slug": "pachet-2-ore-b",
+    "nume": "Pachet 2 ore (B)",
+    "descriere": "- Pictură pe față\n- Baloane modelate\n- Ateliere & jocuri la măsuțe",
+    "pret": "700 lei"
+  },
+  {
+    "slug": "pachet-2-ore-c",
+    "nume": "Pachet 2 ore Outdoor",
+    "descriere": "- Pictură pe față\n- Baloane modelate\n- Jocuri de grup & competiții\n- Baloane cu apă & baloane de săpun",
+    "pret": "700 lei"
+  },
+  {
+    "slug": "pachet-3-ore",
+    "nume": "Pachet 3 ore",
+    "descriere": "- Pictură pe față\n- Baloane modelate\n- Ateliere de creație/jocuri\n- 2 mascote",
+    "pret": "1000 lei"
+  }
+]
