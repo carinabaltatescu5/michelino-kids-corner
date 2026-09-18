@@ -71,11 +71,11 @@ const packageGlowClasses = [
 ]
 
 const packageCharacters = [
-  '/gallery/personaje/mickey_salut.png',
-  '/gallery/personaje/minnie_salut.png',
-  '/gallery/personaje/stitch_salut.png',
-  '/gallery/personaje/spiderman_zboara.png',
-  '/gallery/personaje/paw_patrol_zboara.png',
+  '/pachete/personaje/mickey_salut.png',
+  '/pachete/personaje/minnie_salut.png',
+  '/pachete/personaje/stitch_salut.png',
+  '/pachete/personaje/spiderman_zboara.png',
+  '/pachete/personaje/paw_patrol_zboara.png',
 ]
 
 function InflatableSlides() {
@@ -106,7 +106,7 @@ function InflatableSlides() {
               onClick={() => toggleSlide(slide.id)}
               aria-expanded={isExpanded}
             >
-              <img src={`/tobogane/${slide.imageSrc}`} alt={`${slide.name}, tobogan gonflabil pentru petreceri în Satu Mare`} className={`h-40 w-full rounded-t-3xl object-cover sm:h-56 lg:h-64 ${isExpanded ? 'max-md:h-[52vh]' : ''}`} />
+              <img src={`/tobogane/images/${slide.imageSrc}`} alt={`${slide.name}, tobogan gonflabil pentru petreceri în Satu Mare`} className={`h-40 w-full rounded-t-3xl object-cover sm:h-56 lg:h-64 ${isExpanded ? 'max-md:h-[52vh]' : ''}`} />
               <div className="p-6">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
                   <h2 className="min-h-[4.5rem] text-3xl font-black leading-tight text-ink">{slide.name}</h2>

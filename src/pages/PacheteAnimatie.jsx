@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom'
 import { usePageSeo } from '../hooks/usePageSeo'
 
 const packageCharacters = [
-  '/gallery/personaje/mickey_salut.png',
-  '/gallery/personaje/minnie_salut.png',
-  '/gallery/personaje/stitch_salut.png',
-  '/gallery/personaje/spiderman_zboara.png',
-  '/gallery/personaje/paw_patrol_zboara.png',
-  '/gallery/personaje/download.png',
+  '/pachete/personaje/mickey_salut.png',
+  '/pachete/personaje/minnie_salut.png',
+  '/pachete/personaje/stitch_salut.png',
+  '/pachete/personaje/spiderman_zboara.png',
+  '/pachete/personaje/paw_patrol_zboara.png',
+  '/pachete/personaje/download.png',
 ]
 
 const packageGlowClasses = [

@@ -21,7 +21,7 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-3 py-2 sm:px-8 sm:py-4">
       <nav className="relative mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/35 bg-white/80 px-3 py-1.5 shadow-2xl shadow-[#831843]/10 backdrop-blur-xl sm:px-5 sm:py-3" aria-label="Navigație principală">
         <a href="/" aria-label="Acasă">
-          <img src="/logo.png" alt="Michelino Logo" className="h-10 w-auto sm:h-16" />
+          <img src="/shared/logo.png" alt="Michelino Logo" className="h-10 w-auto sm:h-16" />
         </a>
 
         <div className="flex items-center gap-6 md:gap-8">

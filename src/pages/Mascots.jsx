@@ -152,7 +152,7 @@ function Mascots() {
             }`}
           >
             <img
-              src={`/mascote/${filename}`}
+              src={`/mascote/images/${filename}`}
               alt={name.startsWith('Mascotă') ? name : `Mascotă ${name} la petrecere de copii, Michelino Satu Mare`}
               loading="lazy"
               className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105"

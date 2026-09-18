@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 const galleryImages = [
-  { src: '/gallery/printese.jpg', alt: 'Petrecere Michelino cu printese' },
-  { src: '/gallery/mickey.jpg', alt: 'Distractie pentru copii la Michelino' },
-  { src: '/gallery/masina_high_resolution.png', alt: 'Masina de joaca Michelino' },
-  { src: '/gallery/kids.jpg', alt: 'Copii bucurandu-se de o petrecere' },
-  { src: '/gallery/IMG-20260908-WA0009 (1).jpg', alt: 'Eveniment pentru copii organizat de Michelino' },
-  { src: '/gallery/Aushopping-7482_result.jpg', alt: 'Animatie pentru copii la Aushopping' },
+  { src: '/home/gallery/printese.jpg', alt: 'Petrecere Michelino cu printese' },
+  { src: '/home/gallery/mickey.jpg', alt: 'Distractie pentru copii la Michelino' },
+  { src: '/home/gallery/masina_high_resolution.png', alt: 'Masina de joaca Michelino' },
+  { src: '/home/gallery/kids.jpg', alt: 'Copii bucurandu-se de o petrecere' },
+  { src: '/home/gallery/IMG-20260908-WA0009 (1).jpg', alt: 'Eveniment pentru copii organizat de Michelino' },
+  { src: '/home/gallery/Aushopping-7482_result.jpg', alt: 'Animatie pentru copii la Aushopping' },
 ]
 
 const homeConfetti = [
@@ -122,9 +122,9 @@ function Home() {
 
       <div
         className="relative -mt-5 h-36 bg-bottom bg-no-repeat sm:h-44 md:-mt-7"
-        style={{ backgroundImage: "url('/ripped.png')", backgroundSize: '100% auto' }}
+        style={{ backgroundImage: "url('/home/decor/ripped.png')", backgroundSize: '100% auto' }}
       >
-        <img src="/logo.png" alt="Michelino" className="absolute left-1/2 top-8 z-10 w-56 -translate-x-1/2 object-contain sm:top-10 sm:w-72" />
+        <img src="/shared/logo.png" alt="Michelino" className="absolute left-1/2 top-8 z-10 w-56 -translate-x-1/2 object-contain sm:top-10 sm:w-72" />
       </div>
 
       <section className="relative z-10 px-6 pb-14 pt-4 sm:pb-20 sm:pt-6">
@@ -162,7 +162,7 @@ function Home() {
           <p className="mt-6 max-w-xl text-lg leading-8 text-muted">De 12 ani, echipa Michelino aduce culoare la petrecerile din Satu Mare. Venim cu personaje îndrăgite, jocuri creative și echipamente verificate, ca fiecare copil să se simtă parte din poveste.</p>
         </motion.div>
         <motion.img
-          src="/michelino.png"
+          src="/home/decor/michelino.png"
           alt="Mascote Michelino într-o mașină colorată"
           className="h-80 w-full rounded-[2.5rem] object-cover shadow-[12px_12px_0_#65c7c0] sm:h-[26rem]"
           initial={{ opacity: 0, x: 24, rotate: 2 }}

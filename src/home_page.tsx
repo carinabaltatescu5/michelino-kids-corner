@@ -20,9 +20,18 @@ const FacebookIcon = ({ size = 24 }) => (
 );
 
 const gallery = [
-  { src: '/gallery/kids.jpg', alt: 'Copii zâmbind la o petrecere colorată', label: 'Râsete mari' },
-  { src: '/gallery/Aushopping-7482_result.jpg', alt: 'Baloane colorate la o petrecere pentru copii', label: 'Baloane peste tot' },
-  { src: '/gallery/mickey.jpg', alt: 'Mascotă veselă care distrează copiii', label: 'Mascote fantastice' },
+  { src: '/home/gallery/kids.jpg', alt: 'Copii zâmbind la o petrecere colorată', label: 'Râsete mari' },
+  { src: '/home/gallery/Aushopping-7487_result.jpg', alt: 'Baloane colorate la o petrecere pentru copii', label: 'Baloane colorate' },
+  { src: '/home/gallery/mickey.jpg', alt: 'Mascotă veselă care distrează copiii', label: 'Mascote fantastice' },
+  { src: '/home/gallery/mascote2.jpg', alt: 'Mascote pentru petreceri de copii în Satu Mare', label: 'Mascote îndrăgite' },
+  { src: '/home/gallery/masina_high_resolution.png', alt: 'Mașină colorată la un eveniment pentru copii', label: 'Distracție colorată' },
+  { src: '/home/gallery/poza1.jpg', alt: 'Copii distrându-se la un eveniment Michelino', label: 'Joacă și zâmbete' },
+  { src: '/home/gallery/poza2.jpg', alt: 'Animație pentru copii la un eveniment Michelino', label: 'Animație pentru copii' },
+  { src: '/home/gallery/poza3.jpg', alt: 'Petrecere pentru copii organizată de Michelino', label: 'Petrecere de neuitat' },
+  { src: '/home/gallery/poza4.jpg', alt: 'Copii și mascote la o petrecere Michelino', label: 'Personaje și joacă' },
+  { src: '/home/gallery/poza5.jpg', alt: 'Eveniment pentru copii în Satu Mare', label: 'Amintiri frumoase' },
+  { src: '/home/gallery/printese.jpg', alt: 'Prințese la o petrecere pentru copii', label: 'Povești de basm' },
+  { src: '/home/gallery/IMG-20260908-WA0009 (1).jpg', alt: 'Eveniment pentru copii organizat de Michelino', label: 'Bucurie la petrecere' },
 ]
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -51,7 +60,7 @@ export default function Page({ contactOnly = false }) {
   }, [contactOnly])
 
   useEffect(() => {
-    const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % gallery.length), 4200)
+    const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % gallery.length), 3000)
     return () => window.clearInterval(timer)
   }, [])
 
@@ -64,7 +73,7 @@ export default function Page({ contactOnly = false }) {
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  const poster = isMobile ? '/video/hero-portrait-poster.jpg' : '/video/hero-landscape-poster.jpg'
+  const poster = isMobile ? '/home/video/hero-portrait-poster.jpg' : '/home/video/hero-landscape-poster.jpg'
 
   return (
     <>
@@ -86,8 +95,8 @@ export default function Page({ contactOnly = false }) {
             aria-hidden="true"
             className="relative z-0 block h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover"
           >
-            <source src="/video/hero-portrait.mp4" media="(max-width: 767px)" type="video/mp4" />
-            <source src="/video/hero-landscape.mp4" media="(min-width: 768px)" type="video/mp4" />
+            <source src="/home/video/hero-portrait.mp4" media="(max-width: 767px)" type="video/mp4" />
+            <source src="/home/video/hero-landscape.mp4" media="(min-width: 768px)" type="video/mp4" />
           </video>
         )}
         <div className="absolute inset-0 z-10 flex items-end justify-center pb-1 text-center md:pb-24">
@@ -141,14 +150,14 @@ export default function Page({ contactOnly = false }) {
         
         {/* Stitch - Lipit absolut de marginea stângă și urcat mai sus */}
         <img
-          src="/stitch_side.png"
+          src="/home/decor/stitch_side.png"
           alt="Stitch, mascotă pentru petreceri de copii în Satu Mare"
           className="absolute left-0 top-[12%] md:top-[22%] z-0 w-[35vw] max-w-[180px] translate-y-[15%] pointer-events-none drop-shadow-2xl md:max-w-[280px]"
         />
         
         {/* Angel - Lipită absolut de marginea dreaptă și urcată mai sus */}
         <img
-          src="/angel.png"
+          src="/home/decor/angel.png"
           alt="Angel, mascotă pentru petreceri de copii în Satu Mare"
           className="absolute right-0 top-[18%] md:top-[22%] z-30 w-[35vw] max-w-[190px] -translate-y-[30%] pointer-events-none drop-shadow-2xl md:max-w-[290px]"
         />
@@ -158,7 +167,7 @@ export default function Page({ contactOnly = false }) {
           <div className="relative flex flex-col items-center">
             {/* Titlu Grafic Urcat Mai Sus */}
             <img
-              src="/TitluServicii.png"
+              src="/home/decor/TitluServicii.png"
               alt="Servicii de animație pentru copii în Satu Mare"
               className="pointer-events-none relative z-20 h-auto w-[87%] max-w-2.5xl -translate-y-[25%] object-contain md:w-[64%]"
             />
