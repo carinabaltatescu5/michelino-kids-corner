@@ -1,7 +1,13 @@
 import { ArrowRight, Briefcase, PartyPopper } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { usePageSeo } from '../hooks/usePageSeo'
 
 function Services() {
+  usePageSeo({
+    title: 'Servicii și Prețuri — Michelino Kids Corner Satu Mare',
+    description: 'Animație copii, mascote, pictură pe față și tobogane gonflabile pentru petreceri în Satu Mare și împrejurimi.',
+  })
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
       <div className="max-w-2xl">

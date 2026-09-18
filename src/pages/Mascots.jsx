@@ -1,16 +1,17 @@
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { usePageSeo } from '../hooks/usePageSeo'
 
 const mascotImages = [
-  ['Amickey2.jpg', 'Mickey Mouse'],
-  ['Bminnie2.jpg', 'Minnie Mouse'],
-  ['C2 minnie.jpg', 'Minnie Mouse'],
-  ['Cmickey3.jpg', 'Mickey Mouse'],
-  ['Dgoofy.jpg', 'Goofy'],
-  ['Edaisy.jpg', 'Daisy'],
-  ['Fdonald.jpg', 'Donald'],
-  ['Felsa.jpg', 'Elsa'],
+  ['Amickey2.jpg', 'Mascotă Mickey Mouse la petrecere de copii, Michelino Satu Mare'],
+  ['Bminnie2.jpg', 'Mascotă Minnie Mouse la petrecere de copii, Michelino Satu Mare'],
+  ['C2 minnie.jpg', 'Mascotă Minnie Mouse pentru petreceri de copii în Satu Mare'],
+  ['Cmickey3.jpg', 'Mascotă Mickey Mouse pentru petreceri de copii în Satu Mare'],
+  ['Dgoofy.jpg', 'Mascotă Goofy la petrecere de copii, Michelino Satu Mare'],
+  ['Edaisy.jpg', 'Mascotă Daisy la petrecere de copii, Michelino Satu Mare'],
+  ['Fdonald.jpg', 'Mascotă Donald Duck la petrecere de copii, Michelino Satu Mare'],
+  ['Felsa.jpg', 'Mascotă Elsa la petrecere de copii, Michelino Satu Mare'],
   ['G eroi2.png', 'Eroi'],
   ['H pawpatrol2.png', 'Paw Patrol'],
   ['I bluey prieteni.jpg', 'Bluey și prietenii'],
@@ -60,6 +61,10 @@ const mascotImages = [
 
 function Mascots() {
   const [expandedBox, setExpandedBox] = useState(null)
+  usePageSeo({
+    title: 'Mascote pentru Petreceri Copii — Michelino',
+    description: 'Peste 50 de personaje îndrăgite: Mickey, Elsa, Spiderman, Paw Patrol și multe altele, disponibile pentru petreceri în Satu Mare și împrejurimi.',
+  })
 
   return (
     <section className="relative w-full overflow-hidden bg-[radial-gradient(circle_at_10%_15%,#fff3c7_0,transparent_22%),radial-gradient(circle_at_90%_35%,#dff4fb_0,transparent_25%),linear-gradient(135deg,#fffaf3_0%,#fff7f1_48%,#f1fbf8_100%)] px-6 py-8 sm:py-12 lg:px-8">
@@ -148,7 +153,7 @@ function Mascots() {
           >
             <img
               src={`/mascote/${filename}`}
-              alt={name}
+              alt={name.startsWith('Mascotă') ? name : `Mascotă ${name} la petrecere de copii, Michelino Satu Mare`}
               loading="lazy"
               className="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105"
             />

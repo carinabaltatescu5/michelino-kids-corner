@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { useParams } from 'react-router-dom'
+import { usePageSeo } from '../hooks/usePageSeo'
 
 const content = {
   mascote: {
@@ -105,7 +106,7 @@ function InflatableSlides() {
               onClick={() => toggleSlide(slide.id)}
               aria-expanded={isExpanded}
             >
-              <img src={`/tobogane/${slide.imageSrc}`} alt={slide.name} className={`h-40 w-full rounded-t-3xl object-cover sm:h-56 lg:h-64 ${isExpanded ? 'max-md:h-[52vh]' : ''}`} />
+              <img src={`/tobogane/${slide.imageSrc}`} alt={`${slide.name}, tobogan gonflabil pentru petreceri în Satu Mare`} className={`h-40 w-full rounded-t-3xl object-cover sm:h-56 lg:h-64 ${isExpanded ? 'max-md:h-[52vh]' : ''}`} />
               <div className="p-6">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
                   <h2 className="min-h-[4.5rem] text-3xl font-black leading-tight text-ink">{slide.name}</h2>
@@ -207,6 +208,12 @@ function ServiceDetail({ type }) {
   const { slug } = useParams()
   const [animationPackages, setAnimationPackages] = useState(null)
   const [loadError, setLoadError] = useState('')
+  usePageSeo({
+    title: type === 'tobogane' ? 'Tobogane Gonflabile de Închiriat — Michelino Satu Mare' : 'Mascote pentru Petreceri Copii — Michelino',
+    description: type === 'tobogane'
+      ? 'Închiriere tobogane gonflabile tematice pentru petreceri și evenimente. Livrare și montaj în Satu Mare, Oaș, Turț și Gherța.'
+      : 'Mascote pentru petreceri de copii, cu personaje îndrăgite și animație în Satu Mare și împrejurimi.',
+  })
 
   useEffect(() => {
     if (type !== 'animation') return undefined

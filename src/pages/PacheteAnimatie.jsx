@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { usePageSeo } from '../hooks/usePageSeo'
 
 const packageCharacters = [
   '/gallery/personaje/mickey_salut.png',
@@ -113,6 +114,10 @@ export default function PacheteAnimatie() {
   const { slug } = useParams()
   const [plans, setPlans] = useState(null)
   const [loadError, setLoadError] = useState('')
+  usePageSeo({
+    title: 'Pachete Animație Copii — Michelino Satu Mare',
+    description: 'Pachete de animație pentru petreceri de copii: jocuri, mascote, baloane modelate și pictură pe față. Servicii în Satu Mare și zona Oaș.',
+  })
 
   useEffect(() => {
     let isCurrent = true

@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown, ArrowRight, ArrowUpRight, Briefcase, Mail, MapPin, Phone, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { usePageSeo } from './hooks/usePageSeo'
 
 const FacebookIcon = ({ size = 24 }) => (
   <svg
@@ -26,12 +27,28 @@ const gallery = [
 
 const ease = [0.22, 1, 0.36, 1] as const
 
-export default function Page() {
+export default function Page({ contactOnly = false }) {
   const [activeSlide, setActiveSlide] = useState(0)
   const [isMobile, setIsMobile] = useState(() => (
     typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
   ))
   const prefersReducedMotion = useReducedMotion()
+  usePageSeo({
+    title: contactOnly ? 'Contact — Michelino Kids Corner Satu Mare' : 'Michelino Kids Corner — Animație pentru copii în Satu Mare',
+    description: contactOnly
+      ? 'Rezervă animație pentru petrecerea copilului tău în Satu Mare. Sună sau scrie-ne pe WhatsApp pentru disponibilitate și ofertă.'
+      : 'Animatori, mascote, pictură pe față și tobogane gonflabile pentru petreceri de copii în Satu Mare, Oaș, Negrești-Oaș, Călinești-Oaș, Turț și Gherța. Rezervă acum!',
+  })
+
+  useEffect(() => {
+    if (!contactOnly) return undefined
+
+    const frame = window.requestAnimationFrame(() => {
+      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [contactOnly])
 
   useEffect(() => {
     const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % gallery.length), 4200)
@@ -83,7 +100,7 @@ export default function Page() {
           <motion.div initial={{ opacity: 0, x: -28 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease }}>
             
             <h2 className="font-display text-balance text-5xl font-black leading-[0.95] tracking-[-0.05em] text-primary sm:text-7xl">
-              Bucurie<br /><span className="text-accent-foreground">la purtător.</span>
+              Distracție<br /><span className="text-accent-foreground">cât cuprinde.</span>
             </h2>
             
             <div className="mt-8 max-w-md text-lg font-semibold leading-relaxed text-foreground/75">
@@ -125,14 +142,14 @@ export default function Page() {
         {/* Stitch - Lipit absolut de marginea stângă și urcat mai sus */}
         <img
           src="/stitch_side.png"
-          alt="Stitch"
+          alt="Stitch, mascotă pentru petreceri de copii în Satu Mare"
           className="absolute left-0 top-[12%] md:top-[22%] z-0 w-[35vw] max-w-[180px] translate-y-[15%] pointer-events-none drop-shadow-2xl md:max-w-[280px]"
         />
         
         {/* Angel - Lipită absolut de marginea dreaptă și urcată mai sus */}
         <img
           src="/angel.png"
-          alt="Angel"
+          alt="Angel, mascotă pentru petreceri de copii în Satu Mare"
           className="absolute right-0 top-[18%] md:top-[22%] z-30 w-[35vw] max-w-[190px] -translate-y-[30%] pointer-events-none drop-shadow-2xl md:max-w-[290px]"
         />
 
@@ -142,7 +159,7 @@ export default function Page() {
             {/* Titlu Grafic Urcat Mai Sus */}
             <img
               src="/TitluServicii.png"
-              alt="Servicii"
+              alt="Servicii de animație pentru copii în Satu Mare"
               className="pointer-events-none relative z-20 h-auto w-[87%] max-w-2.5xl -translate-y-[25%] object-contain md:w-[64%]"
             />
           </div>
@@ -203,6 +220,9 @@ mihaela_simma@yahoo.com</a>
             </div>
           </div>
           </div>
+          <p className="mt-8 text-xs text-muted">
+            Organizăm evenimente în Satu Mare și împrejurimi: Oaș, Negrești-Oaș, Călinești-Oaș, Turț, Gherța Mică, Gherța Mare.
+          </p>
           <div className="mt-20 flex flex-col justify-between gap-4 border-t border-slate-900/20 pt-6 text-sm font-semibold text-slate-900/60 sm:flex-row">
             <span>© 2026 Michelino</span>
             <a href="#acasa" className="flex items-center gap-2 text-slate-900 hover:text-slate-700">Sus <ArrowUpRight size={16} /></a>

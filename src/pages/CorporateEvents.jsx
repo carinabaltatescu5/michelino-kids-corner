@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { usePageSeo } from '../hooks/usePageSeo'
 
 const corporatePlans = [
   {
@@ -21,6 +22,11 @@ const corporatePlans = [
 ]
 
 function CorporateEvents() {
+  usePageSeo({
+    title: 'Evenimente Corporate — Animație pentru Firme — Michelino',
+    description: 'Animatori profesioniști pentru evenimentele companiei tale: pictură pe față, baloane modelate, ateliere pentru copiii angajaților. Satu Mare și zona Oaș.',
+  })
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
       <header className="max-w-3xl">
