@@ -13,21 +13,21 @@ const galleryImages = [
 ]
 
 const homeConfetti = [
-  ['left-[6%] top-[12%]', 'text-[#ef8061]', '✦', 0],
-  ['left-[18%] top-[24%]', 'text-[#f9bd3b]', '●', 0.45],
-  ['left-[31%] top-[8%]', 'text-[#16817d]', '✦', 0.9],
-  ['left-[44%] top-[32%]', 'text-[#ef8061]', '●', 1.35],
-  ['left-[58%] top-[15%]', 'text-[#7e65c7]', '✦', 1.8],
-  ['left-[72%] top-[29%]', 'text-[#f9bd3b]', '●', 2.25],
-  ['left-[87%] top-[11%]', 'text-[#65c7c0]', '✦', 2.7],
-  ['left-[95%] top-[40%]', 'text-[#ef8061]', '●', 0.3],
-  ['left-[10%] top-[55%]', 'text-[#65c7c0]', '✦', 0.75],
-  ['left-[23%] top-[72%]', 'text-[#ef8061]', '●', 1.2],
-  ['left-[39%] top-[62%]', 'text-[#f9bd3b]', '✦', 1.65],
-  ['left-[53%] top-[82%]', 'text-[#16817d]', '●', 2.1],
-  ['left-[68%] top-[58%]', 'text-[#ef8061]', '✦', 2.55],
-  ['left-[82%] top-[76%]', 'text-[#7e65c7]', '●', 0.6],
-  ['left-[93%] top-[68%]', 'text-[#f9bd3b]', '✦', 1.05],
+  ['left-[6%] top-[12%]', 'text-coral', '✦', 0],
+  ['left-[18%] top-[24%]', 'text-sun', '●', 0.45],
+  ['left-[31%] top-[8%]', 'text-teal', '✦', 0.9],
+  ['left-[44%] top-[32%]', 'text-coral', '●', 1.35],
+  ['left-[58%] top-[15%]', 'text-grape', '✦', 1.8],
+  ['left-[72%] top-[29%]', 'text-sun', '●', 2.25],
+  ['left-[87%] top-[11%]', 'text-mint', '✦', 2.7],
+  ['left-[95%] top-[40%]', 'text-coral', '●', 0.3],
+  ['left-[10%] top-[55%]', 'text-mint', '✦', 0.75],
+  ['left-[23%] top-[72%]', 'text-coral', '●', 1.2],
+  ['left-[39%] top-[62%]', 'text-sun', '✦', 1.65],
+  ['left-[53%] top-[82%]', 'text-teal', '●', 2.1],
+  ['left-[68%] top-[58%]', 'text-coral', '✦', 2.55],
+  ['left-[82%] top-[76%]', 'text-grape', '●', 0.6],
+  ['left-[93%] top-[68%]', 'text-sun', '✦', 1.05],
 ]
 
 function Home() {
@@ -59,12 +59,12 @@ function Home() {
             {symbol}
           </motion.span>
         ))}
-        <div className="absolute -left-24 top-[30%] h-72 w-72 rounded-full bg-[#ef8061]/25 blur-2xl" />
-        <div className="absolute right-[-8rem] top-[48%] h-96 w-96 rounded-full bg-[#7e65c7]/20 blur-2xl" />
-        <div className="absolute left-[35%] top-[76%] h-64 w-64 rounded-full bg-[#f9bd3b]/25 blur-2xl" />
+        <div className="absolute -left-24 top-[30%] h-72 w-72 rounded-full bg-coral/25 blur-2xl" />
+        <div className="absolute right-[-8rem] top-[48%] h-96 w-96 rounded-full bg-grape/20 blur-2xl" />
+        <div className="absolute left-[35%] top-[76%] h-64 w-64 rounded-full bg-sun/25 blur-2xl" />
       </div>
 
-      <div className="relative z-10 aspect-[5/4] w-full overflow-hidden bg-gradient-to-br from-[#16817d] via-[#65c7c0] to-[#f9bd3b] md:aspect-[2.4/1]">
+      <div className="relative z-10 aspect-[5/4] w-full overflow-hidden bg-gradient-to-br from-teal via-mint to-sun md:aspect-[2.4/1]">
         <AnimatePresence mode="sync">
           <motion.img
             key={galleryImages[activeImage].src}
@@ -77,12 +77,12 @@ function Home() {
             transition={{ duration: 0.9, ease: 'easeInOut' }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1d4354]/35 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/35 via-transparent to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 left-2 w-4 sm:left-5" aria-hidden="true">
           {[
-            ['left-0 top-[18%] bg-[#f9bd3b]', 0],
-            ['left-3 top-[44%] bg-[#ef8061]', 0.35],
-            ['left-0 top-[70%] bg-[#65c7c0]', 0.7],
+            ['left-0 top-[18%] bg-sun', 0],
+            ['left-3 top-[44%] bg-coral', 0.35],
+            ['left-0 top-[70%] bg-mint', 0.7],
           ].map(([style, delay]) => (
             <motion.span
               key={style}
@@ -94,9 +94,9 @@ function Home() {
         </div>
         <div className="pointer-events-none absolute inset-y-0 right-2 w-4 sm:right-5" aria-hidden="true">
           {[
-            ['right-0 top-[28%] bg-[#65c7c0]', 0],
-            ['right-3 top-[53%] bg-[#f9bd3b]', 0.3],
-            ['right-0 top-[78%] bg-[#ef8061]', 0.6],
+            ['right-0 top-[28%] bg-mint', 0],
+            ['right-3 top-[53%] bg-sun', 0.3],
+            ['right-0 top-[78%] bg-coral', 0.6],
           ].map(([style, delay]) => (
             <motion.span
               key={style}
@@ -130,9 +130,9 @@ function Home() {
       <section className="relative z-10 px-6 pb-14 pt-4 sm:pb-20 sm:pt-6">
         <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
           {[
-            { title: 'Pachete animație', text: 'Distracție completă pentru o zi de neuitat.', color: 'bg-[#f9bd3b]', Icon: ImageIcon, to: '/services/animation' },
-            { title: 'Mascote și personaje', text: 'Prietenii preferați ai celor mici vin la petrecere.', color: 'bg-[#ef8061]', Icon: PersonStanding, to: '/mascote' },
-            { title: 'Tobogane', text: 'Joacă și energie pentru toate vârstele.', color: 'bg-[#65c7c0]', Icon: Waves, to: '/services/tobogane' },
+            { title: 'Pachete animație', text: 'Distracție completă pentru o zi de neuitat.', color: 'bg-sun', Icon: ImageIcon, to: '/services/animation' },
+            { title: 'Mascote și personaje', text: 'Prietenii preferați ai celor mici vin la petrecere.', color: 'bg-coral', Icon: PersonStanding, to: '/mascote' },
+            { title: 'Tobogane', text: 'Joacă și energie pentru toate vârstele.', color: 'bg-mint', Icon: Waves, to: '/services/tobogane' },
           ].map(({ title, text, color, Icon, to }, index) => (
             <motion.article
               key={title}
@@ -140,14 +140,14 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.1 }}
-              className={`${color} rounded-[2rem] p-6 text-[#1d4354] shadow-[0_7px_0_rgba(29,67,84,0.14)]`}
+              className={`${color} rounded-[2rem] p-6 text-ink shadow-[0_7px_0_rgba(29,67,84,0.14)]`}
             >
               <Link to={to} className="block focus:outline-none focus-visible:ring-4 focus-visible:ring-white/80">
                 <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/80">
                   <Icon size={29} strokeWidth={2.2} />
                 </div>
                 <h2 className="font-display text-2xl">{title}</h2>
-                <p className="mt-2 max-w-xs text-sm font-medium leading-6 text-[#1d4354]/75">{text}</p>
+                <p className="mt-2 max-w-xs text-sm font-medium leading-6 text-ink/75">{text}</p>
                 <span className="mt-6 inline-block text-sm font-bold underline decoration-2 underline-offset-4">Vezi pachetele →</span>
               </Link>
             </motion.article>
@@ -157,9 +157,9 @@ function Home() {
 
       <section className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-6 pb-20 pt-8 lg:grid-cols-2 lg:px-8 lg:pb-28">
         <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <p className="font-bold uppercase tracking-[0.2em] text-[#e4864c]">Despre noi</p>
-          <h2 className="font-display mt-3 text-4xl leading-tight text-[#1d4354] sm:text-5xl">Facem loc pentru joacă, râsete și amintiri.</h2>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-[#64727a]">De 12 ani, echipa Michelino aduce culoare la petrecerile din Satu Mare. Venim cu personaje îndrăgite, jocuri creative și echipamente verificate, ca fiecare copil să se simtă parte din poveste.</p>
+          <p className="font-bold uppercase tracking-[0.2em] text-ember">Despre noi</p>
+          <h2 className="font-display mt-3 text-4xl leading-tight text-ink sm:text-5xl">Facem loc pentru joacă, râsete și amintiri.</h2>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-muted">De 12 ani, echipa Michelino aduce culoare la petrecerile din Satu Mare. Venim cu personaje îndrăgite, jocuri creative și echipamente verificate, ca fiecare copil să se simtă parte din poveste.</p>
         </motion.div>
         <motion.img
           src="/michelino.png"

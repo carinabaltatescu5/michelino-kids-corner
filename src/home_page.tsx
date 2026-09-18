@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, Mail, MapPin, Phone, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -28,20 +28,52 @@ const ease = [0.22, 1, 0.36, 1] as const
 
 export default function Page() {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(() => (
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
+  ))
+  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
     const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % gallery.length), 4200)
     return () => window.clearInterval(timer)
   }, [])
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)')
+    const handleChange = (event: MediaQueryListEvent) => setIsMobile(event.matches)
+
+    setIsMobile(mediaQuery.matches)
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  const poster = isMobile ? '/video/hero-portrait-poster.jpg' : '/video/hero-landscape-poster.jpg'
+
   return (
     <>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');`}</style>
       <main className="overflow-x-hidden bg-background text-foreground">
 
-      <section id="acasa" className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-5 py-32 text-primary-foreground sm:px-10">
-        <video src="/gallery/HomeVideo.mp4" autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover -z-0" />
-        <div className="absolute inset-0 z-10 flex items-end justify-center pb-24 text-center">
+      <section id="acasa" className="relative flex items-center justify-center overflow-hidden bg-black text-primary-foreground md:min-h-screen md:px-10 md:py-32">
+        {prefersReducedMotion ? (
+          <img src={poster} alt="" aria-hidden="true" className="relative z-0 block h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover" />
+        ) : (
+          <video
+            key={isMobile ? 'portrait' : 'landscape'}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={poster}
+            aria-hidden="true"
+            className="relative z-0 block h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover"
+          >
+            <source src="/video/hero-portrait.mp4" media="(max-width: 767px)" type="video/mp4" />
+            <source src="/video/hero-landscape.mp4" media="(min-width: 768px)" type="video/mp4" />
+          </video>
+        )}
+        <div className="absolute inset-0 z-10 flex items-end justify-center pb-1 text-center md:pb-24">
                     <motion.a href="#servicii" animate={{ y: [0, -8, 0], rotate: [-1, 1, -1] }} transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }} className="inline-flex items-center gap-3 rounded-full bg-[#831843] px-8 py-5 font-display text-xl font-black text-white shadow-2xl shadow-[#831843]/40">Vezi servicii <ArrowDown size={21} /></motion.a>
         </div>
       </section>
@@ -59,7 +91,7 @@ export default function Page() {
                 De 12 ani, la Michelino transformăm orice petrecere într-un univers de basm, unde hohotele de râs nu se mai opresc. Venim încărcați cu magie, jocuri captivante și personajele mult visate, gata să creăm o atmosferă de neuitat.
               </p>
               <p>
-                Rețeta noastră este simplă: <span className="font-bold text-[#1d4354]">tu aduci copiii, noi aducem distracția!</span> Ție îți rămâne doar să te relaxezi și să colecționezi cele mai frumoase amintiri.
+                Rețeta noastră este simplă: <span className="font-bold text-ink">tu aduci copiii, noi aducem distracția!</span> Ție îți rămâne doar să te relaxezi și să colecționezi cele mai frumoase amintiri.
               </p>
             </div>
             
@@ -145,6 +177,9 @@ export default function Page() {
             <div>
               <p className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-slate-900">Planificăm ceva vesel?</p>
               <h2 className="mt-5 font-display text-6xl font-black leading-[0.9] tracking-[-0.05em] sm:text-8xl">Hai la<br /><span className="text-slate-900">joacă!</span></h2>
+              <p className="mt-6 max-w-3xl text-base font-semibold leading-7 text-slate-900/75 sm:text-lg">
+                Alege serviciile potrivite pentru evenimentul tău, apoi sună-ne sau trimite-ne un mesaj pe WhatsApp la numerele afișate pentru programări și mai multe detalii.
+              </p>
             </div>
             <div className="flex flex-col justify-end gap-5 text-lg font-bold">
               <a className="flex items-center gap-3 text-slate-900 hover:text-slate-700" href="mailto:salut@michelino.ro"><Mail size={20} /> 
@@ -155,7 +190,7 @@ mihaela_simma@yahoo.com</a>
           </div>
           </div>
           <div className="mt-20 flex flex-col justify-between gap-4 border-t border-slate-900/20 pt-6 text-sm font-semibold text-slate-900/60 sm:flex-row">
-            <span>© 2026 Michelino. Făcut pentru zile memorabile.</span>
+            <span>© 2026 Michelino</span>
             <a href="#acasa" className="flex items-center gap-2 text-slate-900 hover:text-slate-700">Sus <ArrowUpRight size={16} /></a>
           </div>
         </div>

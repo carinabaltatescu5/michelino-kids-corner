@@ -1,28 +1,48 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HomePage from './home_page'
 import Services from './pages/Services'
-import Contact from './pages/Contact'
 import ServiceDetail from './pages/ServiceDetail'
 import Mascots from './pages/Mascots'
+import PacheteAnimatie from './pages/PacheteAnimatie'
+import CorporateEvents from './pages/CorporateEvents'
 
 const confetti = [
-  ['left-3 top-[16%] text-[#ef8061]', 0, '✦'],
-  ['left-8 top-[31%] text-[#f9bd3b]', 0.7, '●'],
-  ['left-2 top-[52%] text-[#65c7c0]', 1.2, '✦'],
-  ['left-10 top-[72%] text-[#ef8061]', 1.8, '●'],
-  ['right-3 top-[23%] text-[#65c7c0]', 0.4, '✦'],
-  ['right-9 top-[43%] text-[#f9bd3b]', 1, '●'],
-  ['right-2 top-[64%] text-[#ef8061]', 1.5, '✦'],
-  ['right-10 top-[82%] text-[#65c7c0]', 2.1, '●'],
+  ['left-3 top-[16%] text-coral', 0, '✦'],
+  ['left-8 top-[31%] text-sun', 0.7, '●'],
+  ['left-2 top-[52%] text-mint', 1.2, '✦'],
+  ['left-10 top-[72%] text-coral', 1.8, '●'],
+  ['right-3 top-[23%] text-mint', 0.4, '✦'],
+  ['right-9 top-[43%] text-sun', 1, '●'],
+  ['right-2 top-[64%] text-coral', 1.5, '✦'],
+  ['right-10 top-[82%] text-mint', 2.1, '●'],
 ]
+
+function ScrollToHash() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (!hash) return
+
+    const frame = window.requestAnimationFrame(() => {
+      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [hash])
+
+  return null
+}
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white via-[#fdfbf7] to-[#dff4fb] text-[#20313d]">
+      <ScrollToHash />
+      <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-white via-shell to-[#dff4fb] text-slateInk">
         <div className="pointer-events-none fixed inset-0 z-30 hidden sm:block" aria-hidden="true">
           {confetti.map(([position, delay, symbol]) => (
             <motion.span
@@ -43,14 +63,14 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services/animation" element={<ServiceDetail type="animation" />} />
-            <Route path="/services/animation/:slug" element={<ServiceDetail type="animation" />} />
+            <Route path="/evenimente-corporate" element={<CorporateEvents />} />
+            <Route path="/services/animation" element={<PacheteAnimatie />} />
+            <Route path="/services/animation/:slug" element={<PacheteAnimatie />} />
             <Route path="/services/mascote" element={<ServiceDetail type="mascote" />} />
             <Route path="/mascote" element={<Mascots />} />
-            <Route path="/pachete" element={<ServiceDetail type="animation" />} />
+            <Route path="/pachete" element={<PacheteAnimatie />} />
             <Route path="/tobogane" element={<ServiceDetail type="tobogane" />} />
             <Route path="/services/tobogane" element={<ServiceDetail type="tobogane" />} />
-            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         

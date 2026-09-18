@@ -1,0 +1,17 @@
+1. videoclipul home page
+*pe pagina principala, avem un video care ruleaza in loop, dar acesta este potrivit pentru desktop
+pentru telefon, isi da zoom in foarte mult si atunci se vede urat, dor bucati din videoce vreau sa facem? - sa putem avea pe desktop un videoclip landsca[e si pe telefon un videoclip portret. 
+*sa stie singur programul sa dea switch intre ele cand e pe telefon sau pe desktop. Oare se poate asa ceva?
+
+2. Pagina pachete animatie
+Am facut un nou design al paginii de Pachete Animatie folosind V0 by vercel
+problema: trebuie facuta legatura cu site-ul actual. Animatiile de pop up ale personajelor trebuie incluse
+*logo-ul trebuie pus in locul textului "michelino" care se afla sus in stanga 
+
+3. Layout pagina cu tobogane
+* vreau ca pe telefon sa apara cate 2 tobogane/rand. acum apare doar cate unul. Asadar imaginile si panelurile implicit vor deveni mai mici. Dar la apasarea pe unul din tobogane, vreau ca acesta sa isi dea expand. Nu pe tot ecranul, dar sa se faca cu 50-70% mai mare, si sa dea expand iar elementul vecin sa se restranga astfel incat sa ramana doar un mic chenar in marginea panelului care s-a marit. Sa fie o mica animatie draguta si de impact, sa mearga smooth.
+
+
+4. rezerva acum
+*daca am ales un pachet/serviciu si vreau sa il rezerv, sa se adauge in "cos" toate cele dorite. 
+La final putem vedea cosul de cumparaturi, sa adaugam, modificam sau stergem, si sa apasam rezerva acum. Pentru a rezerva, totul se face cu mesaj pe whatsapp catre sefa. Oare se poate face o legatura care sa fie shortcut spre whatsapp? Toate serviciile selectate si pozele lor adiacente sa se formuleze intr-un mesaj formal automat, ceva de genul: Buna ziua! As dori sa rezerv serviciile : X, Y, Z... pe data de X, la adresa Y. Si sa adauge eventual si pozele acelor servicii, unde sunt disponibile. Spune-mi daca e disponibil un astfel de feature, ar fi ideal, super profi.
