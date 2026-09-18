@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, Mail, MapPin, Phone, Sparkles } from 'lucide-react'
+import { ArrowDown, ArrowRight, ArrowUpRight, Briefcase, Mail, MapPin, Phone, Sparkles } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const FacebookIcon = ({ size = 24 }) => (
@@ -167,6 +167,19 @@ export default function Page() {
               <span className="mt-6 inline-flex items-center gap-2 font-bold text-rose-600">Află mai mult <ArrowUpRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} /></span>
             </a>
           </div>
+          <a
+            href="/evenimente-corporate"
+            className="group mt-8 flex w-full items-center justify-between gap-6 rounded-[2rem] bg-ink px-6 py-6 text-white shadow-[0_20px_40px_rgba(27,54,40,0.12)] transition-transform duration-300 hover:-translate-y-1 sm:px-8 sm:py-8"
+          >
+            <div className="flex items-center gap-5">
+              <Briefcase className="shrink-0 text-mint" size={34} aria-hidden="true" />
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-mint">Pentru companii</p>
+                <h2 className="mt-1 text-2xl font-black sm:text-3xl">Evenimente Corporate — animație pentru echipa ta</h2>
+              </div>
+            </div>
+            <ArrowRight className="shrink-0 transition-transform duration-300 group-hover:translate-x-2" size={28} aria-hidden="true" />
+          </a>
         </div>
       </section>
       
