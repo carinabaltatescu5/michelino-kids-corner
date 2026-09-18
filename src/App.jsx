@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Sparkles } from 'lucide-react'
+import { ArrowLeft, Sparkles } from 'lucide-react'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -38,6 +38,22 @@ function ScrollToHash() {
   return null
 }
 
+function BackToHome() {
+  const { pathname } = useLocation()
+
+  if (pathname === '/') return null
+
+  return (
+    <Link
+      to="/"
+      className="fixed left-4 top-28 z-40 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/90 px-4 py-2 text-sm font-bold text-ink shadow-lg shadow-ink/10 backdrop-blur-xl transition-transform hover:-translate-x-1 sm:left-8"
+    >
+      <ArrowLeft size={17} aria-hidden="true" />
+      Înapoi acasă
+    </Link>
+  )
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -58,6 +74,7 @@ function App() {
         
         {/* Noul Navbar încărcat global pe toate paginile */}
         <Navbar />
+        <BackToHome />
         
         <main>
           <Routes>

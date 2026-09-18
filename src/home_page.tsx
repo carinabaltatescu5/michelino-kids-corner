@@ -198,7 +198,8 @@ export default function Page() {
               <a className="flex items-center gap-3 text-slate-900 hover:text-slate-700" href="mailto:salut@michelino.ro"><Mail size={20} /> 
 mihaela_simma@yahoo.com</a>
               <a className="flex items-center gap-3 text-slate-900 hover:text-slate-700" href="tel:+40740123456"><Phone size={20} /> 0740 862 297  /  0743 608 355</a>
-<a className="flex items-center gap-3 text-slate-900 hover:text-slate-700" href="https://www.facebook.com/MichelinoKidsCorner"><FacebookIcon size={20} /> @MichelinoKidsCorner</a>              <a className="flex items-center gap-3 text-slate-900 hover:text-slate-700" href="https://maps.google.com"><MapPin size={20} /> Satu Mare și împrejurimi</a>
+              <a className="flex items-center gap-3 text-slate-900 hover:text-slate-700" href="https://www.facebook.com/MichelinoKidsCorner"><FacebookIcon size={20} /> @MichelinoKidsCorner</a>
+              <div className="flex items-center gap-3 text-slate-900"><MapPin size={20} /> <span>Strada Pinului 5, Satu Mare, Romania</span></div>
             </div>
           </div>
           </div>
