@@ -44,6 +44,7 @@ const slidesData = [
   // id 15 intentionally absent
   { id: 16, name: 'Marvel', dimensions: 'Lungime 8 × Lățime 6 × Înălțime 7 (m)', price: '700 lei', imageSrc: 'tob16.jpg' },
   { id: 17, name: 'Spiderman', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '750 lei', imageSrc: 'tob17.jpg' },
+  { id: 18, name: 'Perete Cățărare', dimensions: 'Lungime 8 × Lățime 6 × Înălțime 8 (m)', price: '800 lei', imageSrc: 'tob18.jpg' },
   { id: 19, name: 'Candy', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '850 lei', imageSrc: 'tob19.jpg' },
   { id: 20, name: 'Lilo & Stitch', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '850 lei', imageSrc: 'tob20.jpg' },
   { id: 21, name: 'Cars', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '850 lei', imageSrc: 'tob21.jpg' },
