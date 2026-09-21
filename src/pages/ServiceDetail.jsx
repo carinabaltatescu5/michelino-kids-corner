@@ -31,7 +31,7 @@ const slidesData = [
   { id: 2, name: 'Minecraft', dimensions: 'Lungime 8,5 × Lățime 4,5 × Înălțime 6,5 (m)', price: '750 lei', imageSrc: 'tob2.jpg' },
   { id: 3, name: 'Sonic', dimensions: 'Lungime 8,5 × Lățime 4,5 × Înălțime 6,5 (m)', price: '750 lei', imageSrc: 'tob3.jpg' },
   { id: 4, name: 'Minnie Castel', dimensions: 'Lungime 11 × Lățime 5 × Înălțime 7 (m)', price: '600 lei', imageSrc: 'tob4.jpg' },
-  { id: 5, name: 'Minnie Roz', dimensions: 'Lungime 9 × Lățime 5 × Înălțime 6 (m)', price: '550 lei', imageSrc: 'tob5.jpg' },
+  { id: 5, name: 'Minnie Roz', dimensions: 'Lungime 7 × Lățime 5 × Înălțime 5,5 (m)', price: '400 lei', imageSrc: 'tob5.jpg' },
   { id: 6, name: 'Crocodil', dimensions: 'Lungime 12 × Lățime 6 × Înălțime 8 (m)', price: '800 lei', imageSrc: 'tob6.jpg' },
   { id: 7, name: 'Maimuța Roșie', dimensions: 'Lungime 7 × Lățime 5 × Înălțime 5,5 (m)', price: '450 lei', imageSrc: 'tob7.jpg' },
   { id: 8, name: 'Mickey Club', dimensions: 'Lungime 6 × Lățime 5 × Înălțime 5 (m)', price: '400 lei', imageSrc: 'tob8.jpg' },
@@ -44,7 +44,6 @@ const slidesData = [
   // id 15 intentionally absent
   { id: 16, name: 'Marvel', dimensions: 'Lungime 8 × Lățime 6 × Înălțime 7 (m)', price: '700 lei', imageSrc: 'tob16.jpg' },
   { id: 17, name: 'Spiderman', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '750 lei', imageSrc: 'tob17.jpg' },
-  { id: 18, name: 'Climbing wall', dimensions: 'Lungime 7 × Lățime 5 × Înălțime 5,5 (m)', price: '400 lei', imageSrc: 'tob18.jpg' },
   { id: 19, name: 'Candy', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '850 lei', imageSrc: 'tob19.jpg' },
   { id: 20, name: 'Lilo & Stitch', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '850 lei', imageSrc: 'tob20.jpg' },
   { id: 21, name: 'Cars', dimensions: 'Lungime 9 × Lățime 6 × Înălțime 7 (m)', price: '850 lei', imageSrc: 'tob21.jpg' },

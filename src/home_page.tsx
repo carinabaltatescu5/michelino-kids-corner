@@ -20,24 +20,20 @@ const FacebookIcon = ({ size = 24 }) => (
 );
 
 const gallery = [
-  { src: '/home/gallery/kids.jpg', alt: 'Copii zâmbind la o petrecere colorată', label: 'Râsete mari' },
-  { src: '/home/gallery/Aushopping-7487_result.jpg', alt: 'Baloane colorate la o petrecere pentru copii', label: 'Baloane colorate' },
-  { src: '/home/gallery/mickey.jpg', alt: 'Mascotă veselă care distrează copiii', label: 'Mascote fantastice' },
   { src: '/home/gallery/mascote2.jpg', alt: 'Mascote pentru petreceri de copii în Satu Mare', label: 'Mascote îndrăgite' },
+  { src: '/home/gallery/mascote3.jpg', alt: 'Mascote la o petrecere pentru copii în Satu Mare', label: 'Distracție cu mascote' },
   { src: '/home/gallery/masina_high_resolution.png', alt: 'Mașină colorată la un eveniment pentru copii', label: 'Distracție colorată' },
-  { src: '/home/gallery/poza1.jpg', alt: 'Copii distrându-se la un eveniment Michelino', label: 'Joacă și zâmbete' },
-  { src: '/home/gallery/poza2.jpg', alt: 'Animație pentru copii la un eveniment Michelino', label: 'Animație pentru copii' },
-  { src: '/home/gallery/poza3.jpg', alt: 'Petrecere pentru copii organizată de Michelino', label: 'Petrecere de neuitat' },
   { src: '/home/gallery/poza4.jpg', alt: 'Copii și mascote la o petrecere Michelino', label: 'Personaje și joacă' },
-  { src: '/home/gallery/poza5.jpg', alt: 'Eveniment pentru copii în Satu Mare', label: 'Amintiri frumoase' },
-  { src: '/home/gallery/printese.jpg', alt: 'Prințese la o petrecere pentru copii', label: 'Povești de basm' },
   { src: '/home/gallery/IMG-20260908-WA0009 (1).jpg', alt: 'Eveniment pentru copii organizat de Michelino', label: 'Bucurie la petrecere' },
+  { src: '/home/gallery/WhatsApp Image 2026-09-22 at 00.20.17.jpeg', alt: 'Eveniment pentru copii organizat de Michelino', label: 'Amintiri frumoase' },
 ]
 
 const ease = [0.22, 1, 0.36, 1] as const
+const DESKTOP_HERO_MODE = 'image'
 
 export default function Page({ contactOnly = false }) {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [isHeroVideoReady, setIsHeroVideoReady] = useState(false)
   const [isMobile, setIsMobile] = useState(() => (
     typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
   ))
@@ -73,31 +69,51 @@ export default function Page({ contactOnly = false }) {
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  const poster = isMobile ? '/home/video/hero-portrait-poster.jpg' : '/home/video/hero-landscape-poster.jpg'
+  const poster = '/home/video/WhatsApp Image 2026-09-22 at 00.44.55.jpeg'
 
   return (
     <>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');`}</style>
       <main className="overflow-x-hidden bg-background text-foreground">
 
-      <section id="acasa" className="relative flex items-center justify-center overflow-hidden bg-black text-primary-foreground md:min-h-screen md:px-10 md:py-32">
-        {prefersReducedMotion ? (
-          <img src={poster} alt="" aria-hidden="true" className="relative z-0 block h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover" />
-        ) : (
-          <video
-            key={isMobile ? 'portrait' : 'landscape'}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={poster}
+      <section id="acasa" className="relative flex aspect-[5/4] items-center justify-center overflow-hidden bg-black text-primary-foreground md:aspect-auto md:min-h-screen md:px-10 md:py-32">
+        {!isMobile && DESKTOP_HERO_MODE === 'image' ? (
+          <img
+            src="/home/video/masina_high_resolution.png"
+            alt=""
             aria-hidden="true"
             className="relative z-0 block h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover"
-          >
-            <source src="/home/video/hero-portrait.mp4" media="(max-width: 767px)" type="video/mp4" />
-            <source src="/home/video/hero-landscape.mp4" media="(min-width: 768px)" type="video/mp4" />
-          </video>
+          />
+        ) : (
+          <>
+            {isMobile && (
+              <img
+                src={poster}
+                alt=""
+                aria-hidden="true"
+                fetchPriority="high"
+                className={`relative z-0 block h-auto w-full object-contain transition-opacity duration-300 md:absolute md:inset-0 md:h-full md:w-full md:object-cover ${isHeroVideoReady ? 'opacity-0' : 'opacity-100'}`}
+              />
+            )}
+            {(isMobile || DESKTOP_HERO_MODE === 'video') && !prefersReducedMotion && (
+              <video
+                key={isMobile ? 'portrait' : 'landscape'}
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={poster}
+                preload="metadata"
+                aria-hidden="true"
+                onCanPlay={() => setIsHeroVideoReady(true)}
+                onPlaying={() => setIsHeroVideoReady(true)}
+                className={`relative z-0 block h-auto w-full object-contain transition-opacity duration-300 md:absolute md:inset-0 md:h-full md:w-full md:object-cover ${isHeroVideoReady ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <source src="/home/video/hero-portrait.mp4" media="(max-width: 767px)" type="video/mp4" />
+                <source src="/home/video/hero-landscape.mp4" media="(min-width: 768px)" type="video/mp4" />
+              </video>
+            )}
+          </>
         )}
         <div className="absolute inset-0 z-10 flex items-end justify-center pb-1 text-center md:pb-24">
                     <motion.a href="#servicii" animate={{ y: [0, -8, 0], rotate: [-1, 1, -1] }} transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }} className="inline-flex items-center gap-3 rounded-full bg-[#831843] px-8 py-5 font-display text-xl font-black text-white shadow-2xl shadow-[#831843]/40">Vezi servicii <ArrowDown size={21} /></motion.a>
@@ -114,7 +130,7 @@ export default function Page({ contactOnly = false }) {
             
             <div className="mt-8 max-w-md text-lg font-semibold leading-relaxed text-foreground/75">
               <p className="mb-4">
-                De 12 ani, la Michelino transformăm orice petrecere într-un univers de basm, unde hohotele de râs nu se mai opresc. Venim încărcați cu magie, jocuri captivante și personajele mult visate, gata să creăm o atmosferă de neuitat.
+                Din 2012, la Michelino transformăm orice petrecere într-un univers de basm, unde hohotele de râs nu se mai opresc. Venim încărcați cu magie, jocuri captivante și personajele mult visate, gata să creăm o atmosferă de neuitat.
               </p>
               <p>
                 Rețeta noastră este simplă: <span className="font-bold text-ink">tu aduci copiii, noi aducem distracția!</span> Ție îți rămâne doar să te relaxezi și să colecționezi cele mai frumoase amintiri.

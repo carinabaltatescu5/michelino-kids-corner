@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 const galleryImages = [
-  { src: '/home/gallery/printese.jpg', alt: 'Petrecere Michelino cu printese' },
-  { src: '/home/gallery/mickey.jpg', alt: 'Distractie pentru copii la Michelino' },
-  { src: '/home/gallery/masina_high_resolution.png', alt: 'Masina de joaca Michelino' },
-  { src: '/home/gallery/kids.jpg', alt: 'Copii bucurandu-se de o petrecere' },
+  { src: '/home/gallery/mascote2.jpg', alt: 'Mascote pentru petreceri de copii în Satu Mare' },
+  { src: '/home/gallery/mascote3.jpg', alt: 'Mascote la o petrecere pentru copii în Satu Mare' },
+  { src: '/home/gallery/masina_high_resolution.png', alt: 'Mașină colorată la un eveniment pentru copii' },
+  { src: '/home/gallery/poza4.jpg', alt: 'Copii și mascote la o petrecere Michelino' },
   { src: '/home/gallery/IMG-20260908-WA0009 (1).jpg', alt: 'Eveniment pentru copii organizat de Michelino' },
-  { src: '/home/gallery/Aushopping-7482_result.jpg', alt: 'Animatie pentru copii la Aushopping' },
+  { src: '/home/gallery/WhatsApp Image 2026-09-22 at 00.20.17.jpeg', alt: 'Eveniment pentru copii organizat de Michelino' },
 ]
 
 const homeConfetti = [
