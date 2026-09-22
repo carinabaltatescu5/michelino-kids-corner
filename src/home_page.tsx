@@ -76,23 +76,23 @@ export default function Page({ contactOnly = false }) {
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');`}</style>
       <main className="overflow-x-hidden bg-background text-foreground">
 
-      <section id="acasa" className="relative flex aspect-[5/4] items-center justify-center overflow-hidden bg-black text-primary-foreground md:aspect-auto md:min-h-screen md:px-10 md:py-32">
+      <section id="acasa" className="relative overflow-hidden bg-black text-primary-foreground md:px-10 md:py-32">
         {!isMobile && DESKTOP_HERO_MODE === 'image' ? (
           <img
             src="/home/video/masina_high_resolution.png"
             alt=""
             aria-hidden="true"
-            className="relative z-0 block h-auto w-full object-contain md:absolute md:inset-0 md:h-full md:w-full md:object-cover"
+            className="mx-auto block h-auto w-full object-contain"
           />
         ) : (
-          <>
+          <div className="relative grid w-full">
             {isMobile && (
               <img
                 src={poster}
                 alt=""
                 aria-hidden="true"
                 fetchPriority="high"
-                className={`relative z-0 block h-auto w-full object-contain transition-opacity duration-300 md:absolute md:inset-0 md:h-full md:w-full md:object-cover ${isHeroVideoReady ? 'opacity-0' : 'opacity-100'}`}
+                className={`col-start-1 row-start-1 mx-auto block h-auto w-full object-contain transition-opacity duration-300 ${isHeroVideoReady ? 'opacity-0' : 'opacity-100'}`}
               />
             )}
             {(isMobile || DESKTOP_HERO_MODE === 'video') && !prefersReducedMotion && (
@@ -107,13 +107,13 @@ export default function Page({ contactOnly = false }) {
                 aria-hidden="true"
                 onCanPlay={() => setIsHeroVideoReady(true)}
                 onPlaying={() => setIsHeroVideoReady(true)}
-                className={`relative z-0 block h-auto w-full object-contain transition-opacity duration-300 md:absolute md:inset-0 md:h-full md:w-full md:object-cover ${isHeroVideoReady ? 'opacity-100' : 'opacity-0'}`}
+                className={`col-start-1 row-start-1 mx-auto block h-auto w-full object-contain transition-opacity duration-300 ${isHeroVideoReady ? 'opacity-100' : 'opacity-0'}`}
               >
                 <source src="/home/video/hero-portrait.mp4" media="(max-width: 767px)" type="video/mp4" />
                 <source src="/home/video/hero-landscape.mp4" media="(min-width: 768px)" type="video/mp4" />
               </video>
             )}
-          </>
+          </div>
         )}
         <div className="absolute inset-0 z-10 flex items-end justify-center pb-1 text-center md:pb-24">
                     <motion.a href="#servicii" animate={{ y: [0, -8, 0], rotate: [-1, 1, -1] }} transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }} className="inline-flex items-center gap-3 rounded-full bg-[#831843] px-8 py-5 font-display text-xl font-black text-white shadow-2xl shadow-[#831843]/40">Vezi servicii <ArrowDown size={21} /></motion.a>
