@@ -58,23 +58,34 @@ function BackToHome() {
   )
 }
 
+// Pagina principală are propriile doodle-uri, așa că acolo confetti-ul global nu se afișează.
+function Confetti() {
+  const { pathname } = useLocation()
+
+  if (pathname === '/' || pathname === '/contact') return null
+
+  return (
+    <div className="pointer-events-none fixed inset-0 z-30 hidden sm:block" aria-hidden="true">
+      {confetti.map(([position, delay, symbol]) => (
+        <motion.span
+          key={position}
+          className={`absolute ${position} text-lg`}
+          animate={{ y: [0, 26, 0], rotate: [0, 180, 360], opacity: [0.35, 1, 0.35] }}
+          transition={{ duration: 3.8, delay, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          {symbol === '✦' ? <Sparkles size={16} /> : symbol}
+        </motion.span>
+      ))}
+    </div>
+  )
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToHash />
       <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-white via-shell to-[#dff4fb] text-slateInk">
-        <div className="pointer-events-none fixed inset-0 z-30 hidden sm:block" aria-hidden="true">
-          {confetti.map(([position, delay, symbol]) => (
-            <motion.span
-              key={position}
-              className={`absolute ${position} text-lg`}
-              animate={{ y: [0, 26, 0], rotate: [0, 180, 360], opacity: [0.35, 1, 0.35] }}
-              transition={{ duration: 3.8, delay, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {symbol === '✦' ? <Sparkles size={16} /> : symbol}
-            </motion.span>
-          ))}
-        </div>
+        <Confetti />
         
         {/* Noul Navbar încărcat global pe toate paginile */}
         <Navbar />
