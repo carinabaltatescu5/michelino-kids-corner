@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Image as ImageIcon, PersonStanding, Waves } from 'lucide-react'
+import { Image as ImageIcon, PartyPopper, PersonStanding, Waves } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -128,11 +128,12 @@ function Home() {
       </div>
 
       <section className="relative z-10 px-6 pb-14 pt-4 sm:pb-20 sm:pt-6">
-        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
           {[
             { title: 'Pachete animație', text: 'Distracție completă pentru o zi de neuitat.', color: 'bg-sun', Icon: ImageIcon, to: '/services/animation' },
             { title: 'Mascote și personaje', text: 'Prietenii preferați ai celor mici vin la petrecere.', color: 'bg-coral', Icon: PersonStanding, to: '/mascote' },
-            { title: 'Tobogane', text: 'Joacă și energie pentru toate vârstele.', color: 'bg-mint', Icon: Waves, to: '/services/tobogane' },
+            { title: 'Tobogane și jocuri gonflabile', text: 'Joacă și energie pentru toate vârstele.', color: 'bg-mint', Icon: Waves, to: '/tobogane' },
+            { title: 'Închirieri petrecere', text: 'Mese, scaune, pavilioane și gustări pentru eveniment.', color: 'bg-[#d9d0ff]', Icon: PartyPopper, to: '/inchirieri' },
           ].map(({ title, text, color, Icon, to }, index) => (
             <motion.article
               key={title}
@@ -140,15 +141,15 @@ function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: index * 0.1 }}
-              className={`${color} rounded-[2rem] p-6 text-ink shadow-[0_7px_0_rgba(29,67,84,0.14)]`}
+              className={`${color} rounded-[2rem] p-4 text-ink shadow-[0_7px_0_rgba(29,67,84,0.14)] sm:p-6`}
             >
               <Link to={to} className="block focus:outline-none focus-visible:ring-4 focus-visible:ring-white/80">
-                <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/80">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 sm:mb-8 sm:h-14 sm:w-14">
                   <Icon size={29} strokeWidth={2.2} />
                 </div>
-                <h2 className="font-display text-2xl">{title}</h2>
+                <h2 className="font-display text-xl sm:text-2xl">{title}</h2>
                 <p className="mt-2 max-w-xs text-sm font-medium leading-6 text-ink/75">{text}</p>
-                <span className="mt-6 inline-block text-sm font-bold underline decoration-2 underline-offset-4">Vezi pachetele →</span>
+                <span className="mt-5 inline-block text-sm font-bold underline decoration-2 underline-offset-4 sm:mt-6">Vezi serviciile →</span>
               </Link>
             </motion.article>
           ))}

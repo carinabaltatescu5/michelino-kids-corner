@@ -1,8 +1,33 @@
 import { ArrowRight, Briefcase, PartyPopper } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { tobogane } from '../data/gonflabile'
+import { inchirieri } from '../data/inchirieri'
+import { preturiServicii } from '../data/servicii'
 import { usePageSeo } from '../hooks/usePageSeo'
 
 function Services() {
+  const [animationPrice, setAnimationPrice] = useState(null)
+
+  useEffect(() => {
+    fetch('/data/pachete.json')
+      .then((response) => response.json())
+      .then((packages) => {
+        const prices = packages
+          .map((plan) => Number.parseInt(plan.pret, 10))
+          .filter(Number.isFinite)
+        setAnimationPrice(prices.length ? Math.min(...prices) : null)
+      })
+      .catch(() => setAnimationPrice(null))
+  }, [])
+
+  const serviceCards = [
+    ['Pachete animație', animationPrice, 'Jocuri, concursuri și o doză mare de voie bună.', '/pachete'],
+    ['Mascote și personaje', preturiServicii.mascote, 'Personaje îndrăgite pentru o apariție memorabilă.', '/mascote'],
+    ['Tobogane și jocuri gonflabile', Math.min(...tobogane.map((item) => item.pret).filter((price) => price != null)), 'Aventuri colorate, instalate și verificate de echipa noastră.', '/tobogane'],
+    ['Închirieri petrecere', inchirieri.some((item) => item.pret != null) ? Math.min(...inchirieri.filter((item) => item.pret != null).map((item) => item.pret)) : null, 'Mese, scaune, pavilioane și mașini pentru eveniment.', '/inchirieri'],
+  ]
+
   usePageSeo({
     title: 'Servicii și Prețuri — Michelino Kids Corner Satu Mare',
     description: 'Animație copii, mascote, pictură pe față și tobogane gonflabile pentru petreceri în Satu Mare și împrejurimi.',
@@ -15,18 +40,14 @@ function Services() {
         <h1 className="font-display mt-3 text-5xl text-ink">Tot ce ai nevoie pentru o petrecere reusita.</h1>
         <p className="mt-5 text-lg leading-8 text-muted">Alege energia evenimentului tau, iar noi ne ocupam ca cei mici sa se distreze in siguranta.</p>
       </div>
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
-        {[
-          ['Animatie', 'de la 350 lei', 'Jocuri, concursuri si o doza mare de voie buna.'],
-          ['Tobogane gonflabile', 'de la 450 lei', 'Aventuri colorate, instalate si verificate de echipa noastra.'],
-          ['Pachet complet', 'de la 700 lei', 'Animatie plus gonflabil pentru o experienta fara griji.'],
-        ].map(([title, price, description], index) => (
-          <article key={title} className={`rounded-[2rem] p-8 ${index === 1 ? 'bg-teal text-white' : 'border border-line bg-white'}`}>
+      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        {serviceCards.map(([title, price, description, to], index) => (
+          <Link key={title} to={to} className={`rounded-[2rem] p-8 transition-transform hover:-translate-y-1 ${index === 1 ? 'bg-teal text-white' : 'border border-line bg-white'}`}>
             <PartyPopper className={index === 1 ? 'text-[#f9d88f]' : 'text-coral'} size={30} />
             <h2 className={`font-display mt-7 text-3xl ${index === 1 ? 'text-white' : 'text-ink'}`}>{title}</h2>
             <p className={`mt-3 text-sm leading-6 ${index === 1 ? 'text-white/80' : 'text-muted'}`}>{description}</p>
-            <p className={`mt-7 text-xl font-bold ${index === 1 ? 'text-[#f9d88f]' : 'text-teal'}`}>{price}</p>
-          </article>
+            <p className={`mt-7 text-xl font-bold ${index === 1 ? 'text-[#f9d88f]' : 'text-teal'}`}>{price == null ? 'Preț la cerere' : `de la ${price} lei`}</p>
+          </Link>
         ))}
       </div>
       <Link

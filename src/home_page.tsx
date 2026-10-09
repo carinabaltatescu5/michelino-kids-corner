@@ -192,20 +192,25 @@ export default function Page({ contactOnly = false }) {
 
         {/* Cutiile de servicii */}
         <div className="relative z-10 mx-auto w-full max-w-7xl">
-          <div className="relative z-10 mt-4 grid gap-6 md:grid-cols-3">
-            <a href="/pachete" className="group rotate-[-2deg] rounded-[3rem] border-4 border-amber-300 bg-white p-8 text-blue-900 shadow-[0_20px_40px_rgba(27,54,40,0.08)] transition-all duration-500 ease-out hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_60px_rgba(41,182,246,0.25)]">
-              <span style={{ fontFamily: "'Chewy', cursive" }} className="text-4xl font-black text-amber-500">Pachete animație</span>
+          <div className="relative z-10 mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+            <a href="/pachete" className="group rotate-[-2deg] rounded-[3rem] border-4 border-amber-300 bg-white p-5 text-blue-900 shadow-[0_20px_40px_rgba(27,54,40,0.08)] transition-all duration-500 ease-out hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_60px_rgba(41,182,246,0.25)] sm:p-8">
+              <span style={{ fontFamily: "'Chewy', cursive" }} className="text-2xl font-black text-amber-500 sm:text-4xl">Pachete animație</span>
               <p className="mt-6 text-lg font-semibold leading-relaxed text-blue-900">Distracție completă pentru o zi de neuitat.</p>
               <span className="mt-6 inline-flex items-center gap-2 font-bold text-rose-600">Află mai mult <ArrowUpRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} /></span>
             </a>
-            <a href="/mascote" className="group rotate-[1deg] rounded-[3rem] border-4 border-pink-400 bg-white p-8 text-blue-900 shadow-[0_20px_40px_rgba(27,54,40,0.08)] transition-all duration-500 ease-out hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_60px_rgba(41,182,246,0.25)]">
-              <span style={{ fontFamily: "'Chewy', cursive" }} className="text-4xl font-black text-pink-500">Mascote și personaje</span>
+            <a href="/mascote" className="group rotate-[1deg] rounded-[3rem] border-4 border-pink-400 bg-white p-5 text-blue-900 shadow-[0_20px_40px_rgba(27,54,40,0.08)] transition-all duration-500 ease-out hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_60px_rgba(41,182,246,0.25)] sm:p-8">
+              <span style={{ fontFamily: "'Chewy', cursive" }} className="text-2xl font-black text-pink-500 sm:text-4xl">Mascote și personaje</span>
               <p className="mt-6 text-lg font-semibold leading-relaxed text-blue-900">Prietenii preferați ai celor mici vin la petrecere.</p>
               <span className="mt-6 inline-flex items-center gap-2 font-bold text-rose-600">Află mai mult <ArrowUpRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} /></span>
             </a>
-            <a href="/tobogane" className="group rotate-[-1deg] rounded-[3rem] border-4 border-orange-400 bg-white p-8 text-blue-900 shadow-[0_20px_40px_rgba(27,54,40,0.08)] transition-all duration-500 ease-out hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_60px_rgba(41,182,246,0.25)]">
-              <span style={{ fontFamily: "'Chewy', cursive" }} className="text-4xl font-black text-orange-500">Tobogane gonflabile</span>
+            <a href="/tobogane" className="group rotate-[-1deg] rounded-[3rem] border-4 border-orange-400 bg-white p-5 text-blue-900 shadow-[0_20px_40px_rgba(27,54,40,0.08)] transition-all duration-500 ease-out hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_60px_rgba(41,182,246,0.25)] sm:p-8">
+              <span style={{ fontFamily: "'Chewy', cursive" }} className="text-2xl font-black text-orange-500 sm:text-4xl">Tobogane și jocuri gonflabile</span>
               <p className="mt-6 text-lg font-semibold leading-relaxed text-blue-900">Joacă și energie pentru toate varstele.</p>
+              <span className="mt-6 inline-flex items-center gap-2 font-bold text-rose-600">Află mai mult <ArrowUpRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} /></span>
+            </a>
+            <a href="/inchirieri" className="group rotate-[1deg] rounded-[3rem] border-4 border-teal-300 bg-white p-5 text-blue-900 shadow-[0_20px_40px_rgba(27,54,40,0.08)] transition-all duration-500 ease-out hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_60px_rgba(41,182,246,0.25)] sm:p-8">
+              <span style={{ fontFamily: "'Chewy', cursive" }} className="text-2xl font-black text-teal sm:text-4xl">Închirieri petrecere</span>
+              <p className="mt-6 text-lg font-semibold leading-relaxed text-blue-900">Mese, scaune, pavilioane și mașini pentru eveniment.</p>
               <span className="mt-6 inline-flex items-center gap-2 font-bold text-rose-600">Află mai mult <ArrowUpRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} /></span>
             </a>
           </div>

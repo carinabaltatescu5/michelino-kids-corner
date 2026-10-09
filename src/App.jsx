@@ -7,9 +7,11 @@ import Navbar from './components/Navbar'
 import HomePage from './home_page'
 import Services from './pages/Services'
 import ServiceDetail from './pages/ServiceDetail'
+import Gonflabile from './pages/Gonflabile'
 import Mascots from './pages/Mascots'
 import PacheteAnimatie from './pages/PacheteAnimatie'
 import CorporateEvents from './pages/CorporateEvents'
+import Inchirieri from './pages/Inchirieri'
 
 const confetti = [
   ['left-3 top-[16%] text-coral', 0, '✦'],
@@ -43,11 +45,13 @@ function BackToHome() {
 
   if (pathname === '/') return null
 
+  const isInflatablesPage = pathname === '/tobogane' || pathname === '/services/tobogane'
+
   return (
     <Link
       to="/"
       aria-label="Înapoi acasă"
-      className="fixed left-4 top-28 z-40 inline-flex items-center justify-center rounded-full border border-white/60 bg-white/90 p-3 text-ink shadow-lg shadow-ink/10 backdrop-blur-xl transition-transform hover:-translate-x-1 sm:left-8"
+      className={`fixed left-4 z-40 inline-flex items-center justify-center rounded-full border border-white/60 bg-white/90 p-3 text-ink shadow-lg shadow-ink/10 backdrop-blur-xl transition-transform hover:-translate-x-1 sm:left-8 ${isInflatablesPage ? 'top-[calc(var(--nav-offset)+4rem)]' : 'top-28'}`}
     >
       <ArrowLeft size={17} aria-hidden="true" />
     </Link>
@@ -87,8 +91,9 @@ function App() {
             <Route path="/services/mascote" element={<ServiceDetail type="mascote" />} />
             <Route path="/mascote" element={<Mascots />} />
             <Route path="/pachete" element={<PacheteAnimatie />} />
-            <Route path="/tobogane" element={<ServiceDetail type="tobogane" />} />
-            <Route path="/services/tobogane" element={<ServiceDetail type="tobogane" />} />
+            <Route path="/tobogane" element={<Gonflabile />} />
+            <Route path="/services/tobogane" element={<Gonflabile />} />
+            <Route path="/inchirieri" element={<Inchirieri />} />
           </Routes>
         </main>
         

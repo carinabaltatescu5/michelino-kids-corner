@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { usePageSeo } from '../hooks/usePageSeo'
+import CompleteazaPetrecerea from '../components/CompleteazaPetrecerea'
 
 const packageCharacters = [
   '/pachete/personaje/mickey_salut.png',
@@ -172,6 +173,8 @@ export default function PacheteAnimatie() {
           <PackageCard key={plan.slug} index={index} plan={plan} />
         ))}
       </section>
+
+      <CompleteazaPetrecerea />
 
       <footer id="contact" className="footer-note">Facem loc pentru râsete, joacă și amintiri colorate.</footer>
     </main>

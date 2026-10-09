@@ -15,3 +15,17 @@ problema: trebuie facuta legatura cu site-ul actual. Animatiile de pop up ale pe
 4. rezerva acum
 *daca am ales un pachet/serviciu si vreau sa il rezerv, sa se adauge in "cos" toate cele dorite. 
 La final putem vedea cosul de cumparaturi, sa adaugam, modificam sau stergem, si sa apasam rezerva acum. Pentru a rezerva, totul se face cu mesaj pe whatsapp catre sefa. Oare se poate face o legatura care sa fie shortcut spre whatsapp? Toate serviciile selectate si pozele lor adiacente sa se formuleze intr-un mesaj formal automat, ceva de genul: Buna ziua! As dori sa rezerv serviciile : X, Y, Z... pe data de X, la adresa Y. Si sa adauge eventual si pozele acelor servicii, unde sunt disponibile. Spune-mi daca e disponibil un astfel de feature, ar fi ideal, super profi.
+
+-------------taskuri noi--------------------
+5. la tobogane: By default se deschide pagina de tobogane, ca si pana acum. In partea de sus adaugam optiunea sa alegi *tobogane* sau alte *jocuri gonflabile*
+*design : sus de tot sa fie un buton lung si ingust pe inaltime, care sa selecteze intre "Tobogane gonflabile" sau "Jocuri gonflabile". Asta se intampla ca sa separam afisarea serviciilor gonflabile. La apasarea unuia dintre butoane, cel apasat ramane cu o culoare mai inchisa/evidentiata cu glow, iar cea care NU este selectata, sa fie intr-o umbra/cu gri, sa se vada clar care este cea selectata.
+Afisarea jocurilor sa fie la fel ca a toboganelor- acelasi design, acelasi text, unde punem detaliile despre dimensiuni
+*functionalitatea : nu stiu daca e necesar sa avem doua pagini diferite. As face sa avem doar o pagina, dar butonul sa functioneze ca un "filtru", cand apasam pe butnul de tobogane, se afiseaza toboganele. Cand apasam pe "jocuri gonflabile" sa se afiseze pozele din folderul public/jocuri. 
+
+6. la tobogane: sa adaugam modalitate de sortare (sub butoanele de care am discutat la 5.) : 1. dupa pret 2. dupa inaltime.
+Dupa, sa punem si un filtru: 1. interval de pret- sa afiseze doar toboganele cu pret intre x si y selectate de utilizator
+
+Am nevoie de un sfat: Mai am de adaugat serviciile astea : Pe langa animație, tobogane și mascote, la Michelino de închiriază:
+Mașină de vată pe băț și popcorn, avem 2 varia te de mașini, îți trimit poze, măsuțe și scaunele pt copii de diferite culori, dimensiuni și modele, mese și scaune pt adulți, rotunde sau dreptunghiulare, scaune chiavari, pavilioane de 3/4.5 m sau de 3/6 m, 
+Jocuri gonflabile, bouncere de sărit și bubble house 2 dimensiuni
+----in ce sectiune sa le pun sa nu se simta ca si cum ar fi ascunde? cum sa denumesc sectiunea cu accesoriile astea de petrecere? si sa adaugam butonul in home page? sau cum facem? Am nevoie de experienta ta, ca un software developer si ca un specialist in UX. Vreau sa avem un UX bun. 
