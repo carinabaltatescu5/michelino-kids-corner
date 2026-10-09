@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { useSearchParams } from 'react-router-dom'
 import { jocuri, tobogane } from '../data/gonflabile'
-import { filterByPrice, formatDimensions, formatPrice, sortItems } from '../lib/gonflabile'
+import { filterByPrice, formatDimensions, formatOptiune, formatPretCard, getPrices, sortItems } from '../lib/gonflabile'
 import { usePageSeo } from '../hooks/usePageSeo'
 import CompleteazaPetrecerea from '../components/CompleteazaPetrecerea'
 
@@ -25,6 +25,8 @@ const categories = {
 function GonflabilCard({ item, index, category, expandedId, onToggle }) {
   const isExpanded = expandedId === item.id
   const dimensions = formatDimensions(item)
+  const hasOptions = item.optiuni?.length >= 2
+  const hasExpandedDetails = dimensions || item.descriere || hasOptions || item.nota
 
   return (
     <div>
@@ -43,21 +45,31 @@ function GonflabilCard({ item, index, category, expandedId, onToggle }) {
         aria-expanded={isExpanded}
       >
         <img
-          src={item.imagine}
-          alt={`${item.nume}, ${category === 'tobogane' ? 'tobogan' : 'joc'} gonflabil pentru petreceri în Satu Mare`}
+          src={encodeURI(item.imagine)}
+          alt={category === 'jocuri' ? `${item.nume} — jocuri gonflabile de închiriat, Michelino Satu Mare` : `${item.nume}, tobogan gonflabil pentru petreceri în Satu Mare`}
           loading={index < 4 ? 'eager' : 'lazy'}
           decoding="async"
-          className={`h-40 w-full rounded-t-3xl object-cover sm:h-56 lg:h-64 ${isExpanded ? 'max-md:h-[52vh]' : ''}`}
+          className={`h-40 w-full rounded-t-3xl sm:h-56 lg:h-64 ${item.fit === 'contain' ? 'bg-white p-2 object-contain' : 'object-cover'} ${isExpanded ? 'max-md:h-[52vh]' : ''}`}
         />
         <div className="p-6">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-            <h2 className="min-h-[4.5rem] text-3xl font-black leading-tight text-ink">{item.nume}</h2>
-            <p className="text-xl font-black text-ink sm:shrink-0 md:-translate-x-2">{formatPrice(item.pret)}</p>
+            <div className="min-w-0">
+              <h2 className="min-h-[4.5rem] text-3xl font-black leading-tight text-ink">{item.nume}</h2>
+              {hasOptions && <span className="text-xs font-bold text-slate-500">{item.optiuni.length} variante</span>}
+            </div>
+            <p className="text-xl font-black text-ink sm:shrink-0 md:-translate-x-2">{formatPretCard(item)}</p>
           </div>
-          {dimensions && (
+          {hasExpandedDetails && (
             <div className={`grid overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}>
               <div className="min-h-0 overflow-hidden">
-                <p className="text-sm font-medium text-slate-500">{dimensions}</p>
+                {dimensions && <p className="text-sm font-medium text-slate-500">{dimensions}</p>}
+                {item.descriere && <p className="mt-3 text-sm leading-6 text-slate-600">{item.descriere}</p>}
+                {hasOptions && (
+                  <div className="mt-3 space-y-1">
+                    {item.optiuni.map((option) => <p key={option.eticheta} className="text-sm font-medium text-slate-600">{formatOptiune(option)}</p>)}
+                  </div>
+                )}
+                {item.nota && <p className="mt-3 text-xs font-medium text-slate-500">{item.nota}</p>}
               </div>
             </div>
           )}
@@ -123,8 +135,7 @@ function Gonflabile() {
   const hasInvalidRange = minPrice !== null && maxPrice !== null && minPrice > maxPrice
   const hasPriceFilter = minPrice !== null || maxPrice !== null
   const priceValues = selectedCategory.items
-    .map((item) => item.pret)
-    .filter((price) => price != null)
+    .flatMap(getPrices)
   const priceMin = priceValues.length ? Math.min(...priceValues) : null
   const priceMax = priceValues.length ? Math.max(...priceValues) : null
   const hasHeights = selectedCategory.items.some((item) => item.inaltime != null)
@@ -138,7 +149,7 @@ function Gonflabile() {
   )
   const visibleKey = visibleItems.map((item) => item.id).join(',')
   const hiddenWithoutPrice = hasPriceFilter && !hasInvalidRange
-    ? selectedCategory.items.filter((item) => item.pret == null).length
+    ? selectedCategory.items.filter((item) => getPrices(item).length === 0).length
     : 0
   const expandedId = expanded.category === category && expanded.visibleKey === visibleKey ? expanded.id : null
 

@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predev": "npm run galerii",
+    "galerii": "node scripts/generate-galleries.mjs",
     "build": "vite build",
+    "prebuild": "npm run galerii && npm run verifica:jocuri",
+    "verifica:jocuri": "node scripts/verifica-jocuri.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

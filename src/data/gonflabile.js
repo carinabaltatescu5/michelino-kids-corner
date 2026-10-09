@@ -26,6 +26,47 @@ export const tobogane = [
   { id: 26, nume: 'Lego', pret: 650, lungime: null, latime: null, inaltime: null, imagine: '/tobogane/images/tob26.png' },
 ]
 
-// public/jocuri is currently empty. Add each image here after its filename is
-// humanized and its price and dimensions have been confirmed.
-export const jocuri = []
+export const jocuri = [
+  { id: 'bubble-mare', nume: 'Bubble house mare', imagine: '/jocuri/bubble-mare.png',
+    pret: 700, optiuni: null, lungime: 5, latime: null, inaltime: null, diametru: 3,
+    dimensiuniText: 'Diametru bulă 3 m · lungime ansamblu 5 m', descriere: null, nota: null, fit: 'cover' },
+
+  { id: 'bubble-mic', nume: 'Bubble house mic', imagine: '/jocuri/bubble-mic.png',
+    pret: 400, optiuni: null, lungime: 5, latime: null, inaltime: null, diametru: 3,
+    dimensiuniText: 'Diametru bulă 2 m · lungime totală cu extensie 3 m', descriere: null, nota: null, fit: 'cover' },
+
+  { id: 'bouncer-alb', nume: 'Bouncer alb', imagine: '/jocuri/bouncer-alb.png',
+    pret: 500, optiuni: null, lungime: null, latime: null, inaltime: null, diametru: null,
+    dimensiuniText: null, descriere: null, nota: 'Decorul din baloane nu este inclus în preț.', fit: 'cover' },
+
+  { id: 'sumo', nume: 'Sumo', imagine: '/jocuri/sumo.png',
+    pret: 300, optiuni: [ { eticheta: '2 costume sumo', pret: 300 }, { eticheta: '4 costume sumo', pret: 500 } ],
+    lungime: null, latime: null, inaltime: null, diametru: 4,
+    dimensiuniText: 'Diametru 4 m', descriere: null, nota: null, fit: 'cover' },
+
+  { id: 'ring-box', nume: 'Ring de box', imagine: '/jocuri/ring-box.png',
+    pret: 600, optiuni: null, lungime: 5, latime: 5, inaltime: 3, diametru: null,
+    dimensiuniText: null, descriere: null, nota: null, fit: 'cover' },
+
+  { id: 'gladiator', nume: 'Gladiator', imagine: '/jocuri/gladiator.png',
+    pret: 700, optiuni: null, lungime: 8, latime: 9, inaltime: 0.7, diametru: null,
+    dimensiuniText: null, descriere: null, nota: null, fit: 'cover' },
+
+  { id: 'echilibrium', nume: 'Echilibrium', imagine: '/jocuri/echilibrium.png',
+    pret: 500, optiuni: null, lungime: null, latime: null, inaltime: null, diametru: null,
+    dimensiuniText: null,
+    descriere: 'Joc dinamic pentru 2 participanți simultan. Scopul este dezechilibrarea adversarului cu ajutorul unei perne gonflabile, menținându-ți în același timp propriul echilibru. Cine cade primul iese din joc, iar jocul continuă cu cel rămas sus, schimbând adversarul până la epuizarea participanților.',
+    nota: null, fit: 'contain' },
+
+  { id: 'joc-ciocan-bile', nume: 'Joc cu ciocan și bile', imagine: '/jocuri/joc-ciocan-bile.png',
+    pret: 500, optiuni: null, lungime: 4, latime: 4, inaltime: 2, diametru: null,
+    dimensiuniText: null, descriere: null, nota: null, fit: 'cover' },
+
+  { id: 'perete-lipicios', nume: 'Perete lipicios', imagine: '/jocuri/perete-lipicios.png',
+    pret: 600, optiuni: null, lungime: null, latime: null, inaltime: null, diametru: null,
+    dimensiuniText: null, descriere: null, nota: null, fit: 'cover' }, // TODO: dimensiuni lipsă
+
+  { id: 'ecran-gonflabil', nume: 'Ecran gonflabil', imagine: '/jocuri/ecran-gonflabil.png',
+    pret: 1000, optiuni: null, lungime: 6, latime: 3, inaltime: 6, diametru: null, // TODO: confirmă (mesaj original: „L6/l3/6 h")
+    dimensiuniText: null, descriere: null, nota: null, fit: 'contain' },
+]

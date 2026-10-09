@@ -3,10 +3,28 @@ export function formatPrice(price) {
 }
 
 export function formatDimensions(item) {
+  if (item.dimensiuniText) return item.dimensiuniText
   const dimensions = [item.lungime, item.latime, item.inaltime]
   if (dimensions.some((dimension) => dimension == null)) return null
 
-  return `${dimensions.map((dimension) => dimension.toLocaleString('ro-RO')).join(' × ')} m (L × l × h)`
+  return `${dimensions.map((dimension) => dimension.toLocaleString('ro-RO', { maximumFractionDigits: 2 })).join(' × ')} m (L × l × h)`
+}
+
+export function formatPretCard(item) {
+  if (item.pret === null) return 'Preț la cerere'
+  const prices = getPrices(item)
+  const distinctPrices = [...new Set(prices)]
+  if (distinctPrices.length >= 2) return `de la ${Math.min(...distinctPrices)} lei`
+  return `${item.pret} lei`
+}
+
+export function formatOptiune(option) {
+  return `${option.eticheta} — ${option.pret} lei${option.unitate ? ` / ${option.unitate}` : ''}`
+}
+
+export function getPrices(item) {
+  if (item.optiuni) return item.optiuni.map((option) => option.pret)
+  return item.pret === null ? [] : [item.pret]
 }
 
 export function sortItems(items, sortKey) {
@@ -35,9 +53,10 @@ export function filterByPrice(items, min, max) {
   if (!hasMin && !hasMax) return [...items]
 
   return items.filter((item) => {
-    if (item.pret == null) return false
-    if (hasMin && item.pret < min) return false
-    if (hasMax && item.pret > max) return false
-    return true
+    return getPrices(item).some((price) => {
+      if (hasMin && price < min) return false
+      if (hasMax && price > max) return false
+      return true
+    })
   })
 }
